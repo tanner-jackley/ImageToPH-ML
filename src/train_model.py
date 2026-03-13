@@ -21,4 +21,4 @@ def train():
     # Predict
     predictions = model.predict(X_test)
 
-    return y_test, predictions
+    return y_test, predictions, model
