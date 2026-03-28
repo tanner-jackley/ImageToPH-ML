@@ -6,12 +6,10 @@ def load_image(path: str):
 
     if image is None:
         raise FileNotFoundError(f"Image not found at path: {path}")
-    print(f"Image loaded from {path} with shape {image.shape}")
     return image
 
 def convert_to_hsv(image):
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    print(f"Image converted to HSV color space with shape {hsv.shape}")
     return hsv
 
 def extract_hsv_features(image):

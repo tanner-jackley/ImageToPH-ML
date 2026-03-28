@@ -23,7 +23,7 @@ def train():
         )
         df.append(row)
 
-    df = pd.concat(df, ignore_index=True)
+    df = pd.concat(df, ignore_index=True).sort_values(by="pH", key=lambda x: x.astype(float), ignore_index=True)
 
     X = df[["Hue", "Saturation", "Value"]]
     y = df["pH"]
