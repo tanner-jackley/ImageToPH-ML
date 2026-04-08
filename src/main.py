@@ -7,6 +7,7 @@ from image_preprocessing import preprocess_image
 
 y_test, predictions, model = train()
 
+"""
 # Test sample images
 hsv_from_image = preprocess_image("data/synthetic/sample_image.png")
 input_df = pd.DataFrame(
@@ -31,6 +32,7 @@ input_df = pd.DataFrame(
 )
 prediction = model.predict(input_df)
 print(f"pH Prediction from 3.png: {prediction}")
+"""
 
 # Evaluate
 r2 = r2_score(y_test, predictions)
@@ -41,6 +43,8 @@ print(f"MSE: {mse:.4f}")
 
 y_test = np.array(y_test)
 predictions = np.array(predictions).flatten()
+
+zip(y_test, predictions)
 
 plt.figure(figsize=(8,6))
 plt.scatter(y_test, predictions, s=100, alpha=0.7)

@@ -13,7 +13,7 @@ def train():
     y = df["pH"]
     '''
 
-    folder_path = Path("data/training_images")
+    folder_path = Path("data/meziani_images")
     df = []
     for image_path in folder_path.glob("*.png"):
         hsv_from_image = preprocess_image(image_path)
@@ -26,7 +26,7 @@ def train():
     df = pd.concat(df, ignore_index=True).sort_values(by="pH", key=lambda x: x.astype(float), ignore_index=True)
 
     X = df[["Hue", "Saturation", "Value"]]
-    y = df["pH"]
+    y = df["pH"].astype(float)
     
     # Split
     X_train, X_test, y_train, y_test = train_test_split(
