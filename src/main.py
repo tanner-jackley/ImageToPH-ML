@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 from train_model import train
 from sklearn.metrics import r2_score, mean_squared_error
-from image_preprocessing import preprocess_image
 
 y_test, predictions, model = train()
 
