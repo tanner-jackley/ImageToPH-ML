@@ -33,9 +33,11 @@ Tech Stack
 
 ✅ Image → HSV preprocessing started
 
-⬜ Real image dataset integration
+✅ Real image dataset integration
 
-⬜ Advanced models (KNN, Random Forest)
+⬜ Advanced models (KNN, Decision Tree)
+
+⬜ Model comparison
 
 ⬜ End-to-end prediction system
 
