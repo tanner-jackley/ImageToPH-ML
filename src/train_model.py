@@ -1,9 +1,11 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
 from image_preprocessing import preprocess_image
 from pathlib import Path
-from sklearn.neighbors import KNeighborsRegressor
 
 def train():
     '''
@@ -36,7 +38,9 @@ def train():
 
     # Train model
     #model = LinearRegression()
-    model = KNeighborsRegressor(n_neighbors=3)
+    #model = KNeighborsRegressor(n_neighbors=3)
+    #model = DecisionTreeRegressor(random_state=0)
+    model = RandomForestRegressor(n_estimators=100, random_state=0)
     model.fit(X_train, y_train)
 
     # Predict
