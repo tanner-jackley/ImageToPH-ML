@@ -162,7 +162,7 @@ Model accuracy improves significantly when using real image data vs synthetic da
 git clone https://github.com/tanner-jackley/ImageToPH-ML.git
 cd ImageToPH-ML/src
 pip install -r requirements.txt
-python main.py
+python main.py --image ../data/meziani_images/'2.58.png'
 ```
 
 ## Citations
