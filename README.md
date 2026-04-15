@@ -158,14 +158,12 @@ Model accuracy improves significantly when using real image data vs synthetic da
 
 ### How to run
 
+```
 git clone https://github.com/tanner-jackley/ImageToPH-ML.git
-
 cd ImageToPH-ML/src
-
 pip install -r requirements.txt
-
 python main.py
-
+```
 
 ## Citations
 
