@@ -16,7 +16,7 @@ def train():
     y = df["pH"]
     '''
 
-    folder_path = Path("data/meziani_images")
+    folder_path = Path("../data/meziani_images")
     df = []
     for image_path in folder_path.glob("*.png"):
         hsv_from_image = preprocess_image(image_path)

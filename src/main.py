@@ -1,8 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from image_preprocessing import preprocess_image
 from train_model import train
 from sklearn.metrics import r2_score, mean_squared_error
+import argparse
+import os
+from pathlib import Path
 
 y_test, predictions, model = train()
 
@@ -32,6 +36,27 @@ input_df = pd.DataFrame(
 prediction = model.predict(input_df)
 print(f"pH Prediction from 3.png: {prediction}")
 """
+
+# Set up argument parsing
+parser = argparse.ArgumentParser(description="Process an image.")
+parser.add_argument("--image", required=False, help="Path to the image file")
+args = parser.parse_args()
+
+# Check if file exists and print it
+if args.image:
+    if os.path.exists(args.image):
+        print(f"Processing image: {args.image}")
+        hsv_from_image = preprocess_image(args.image)
+        input_df = pd.DataFrame(
+            [hsv_from_image],
+            columns=["Hue", "Saturation", "Value"]
+        )
+        prediction = model.predict(input_df)
+        print(f"pH Prediction from {Path(args.image).stem}: {prediction}")
+    else:
+        print(f"Error: File {args.image} not found.")
+else:
+    print("No image provided. Skipping individual prediction and showing training graph...")
 
 # Evaluate
 r2 = r2_score(y_test, predictions)
