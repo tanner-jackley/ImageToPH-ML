@@ -26,9 +26,11 @@ Image -> Image preprocessing -> HSV color values -> ML model -> Predicted pH
 
 Build a real-time system that predicts pH from smartphone images for low-cost, portable chemical analysis.
 
-Input: image of pH strip  
+Input: image of pH strip 
 
-Output: Predicted pH = 10.21
+<img width="230" height="243" alt="2 58" src="https://github.com/user-attachments/assets/bc44effd-fdec-4382-a507-8fd9e74781bd" />
+
+Output: Predicted pH = 2.6449
 
 
 ## Current Status
@@ -49,7 +51,7 @@ Output: Predicted pH = 10.21
 
 ✅ Model comparison
 
-☑️ End-to-end prediction system
+✅ End-to-end prediction system
 
 
 ## Implementation
