@@ -140,6 +140,9 @@ R² Score: 0.9786
 
 MSE: 0.3116
 
+#### All Models
+
+<img width="752" height="452" alt="image" src="https://github.com/user-attachments/assets/a68bc950-092d-4cf2-bc97-6608cf25a397" />
 
 | Model | R² | MSE |
 |-|-|-|
