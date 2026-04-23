@@ -8,34 +8,7 @@ import argparse
 import os
 from pathlib import Path
 
-y_test, predictions, model = train()
-
-"""
-# Test sample images
-hsv_from_image = preprocess_image("data/synthetic/sample_image.png")
-input_df = pd.DataFrame(
-    [hsv_from_image],
-    columns=["Hue", "Saturation", "Value"]
-)
-prediction = model.predict(input_df)
-print(f"pH Prediction from sample_image.png: {prediction}")
-
-hsv_from_image = preprocess_image("data/synthetic/10.png")
-input_df = pd.DataFrame(
-    [hsv_from_image],
-    columns=["Hue", "Saturation", "Value"]
-)
-prediction = model.predict(input_df)
-print(f"pH Prediction from 10.png: {prediction}")
-
-hsv_from_image = preprocess_image("data/synthetic/3.png")
-input_df = pd.DataFrame(
-    [hsv_from_image],
-    columns=["Hue", "Saturation", "Value"]
-)
-prediction = model.predict(input_df)
-print(f"pH Prediction from 3.png: {prediction}")
-"""
+y_test, predictions, model = train("rf")
 
 # Set up argument parsing
 parser = argparse.ArgumentParser(description="Process an image.")

@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestRegressor
 from image_preprocessing import preprocess_image
 from pathlib import Path
 
-def train():
+def train(model: str):
     '''
     # Load data
     df = pd.read_csv("data/synthetic/ph_synthetic.csv")
@@ -37,10 +37,14 @@ def train():
     )
 
     # Train model
-    #model = LinearRegression()
-    #model = KNeighborsRegressor(n_neighbors=3)
-    #model = DecisionTreeRegressor(random_state=0)
-    model = RandomForestRegressor(n_estimators=100, random_state=0)
+    if (model == "lr"):
+        model = LinearRegression()
+    elif (model == "knn"):
+        model = KNeighborsRegressor(n_neighbors=3)
+    elif (model == "dt"):
+        model = DecisionTreeRegressor(random_state=0)
+    elif (model == "rf"):
+        model = RandomForestRegressor(n_estimators=100, random_state=0)
     model.fit(X_train, y_train)
 
     # Predict
