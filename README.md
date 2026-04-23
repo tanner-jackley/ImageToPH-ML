@@ -21,17 +21,15 @@ Image -> Image preprocessing -> HSV color values -> ML model -> Predicted pH
 - OpenCV
 - NumPy / Pandas
 
-
 ## Goal
 
 Build a real-time system that predicts pH from smartphone images for low-cost, portable chemical analysis.
 
-Input: image of pH strip 
+Input: image of pH strip
 
 <img width="230" height="243" alt="2 58" src="https://github.com/user-attachments/assets/bc44effd-fdec-4382-a507-8fd9e74781bd" />
 
 Output: Predicted pH = 2.6449
-
 
 ## Current Status
 
@@ -53,7 +51,6 @@ Output: Predicted pH = 2.6449
 
 ✅ End-to-end prediction system
 
-
 ## Implementation
 
 ### 1. Synthetic Data Generation
@@ -65,28 +62,26 @@ Example row from dataset:
 | --- | --- | --- | --- |
 | 0.212782432111785 | 0.7667570675423553 | 0.7222811080290041 | 5.243561663863074 |
 
-This same structure would later be implemented using real images. This approach allowed for quicker development of the infrastructure for the project. 
+This same structure would later be implemented using real images. This approach allowed for quicker development of the infrastructure for the project.
 
+### 2. Data Pipeline & Model Training
 
-### 2. Data Pipeline & Model Training 
+Models: Linear Regression, K Neighbors Regressor, Decision Tree Regressor, Random Forest Regressor
 
-Model: Linear Regression
-
-- Input HSV values (synthetic or from image)
-- Load dataset from CSV
+- Put images into "data/meziani_images" (currently trained on 72 images)
+- Extract HSV values from images
 - Train model (split 80% train, 20% test)
 - Output predicted pH
-
 
 ### 3. Model Evaluation
 
 Evaluation metrics:
 
 - Mean Squared Error (MSE)
+- Coefficient of Determination (R²)
 - Predicted vs actual comparison (based on test values)
 
-This ensures the model is learning meaningful relationships. 
-
+This ensures the model is learning meaningful relationships.
 
 ### 4. Image Preprocessing
 
@@ -102,7 +97,6 @@ Return example:
 ```
 [0.0838, 0.7565, 0.9753]
 ```
-
 
 ### 5. Model Comparisons
 
@@ -144,13 +138,12 @@ MSE: 0.3116
 
 <img width="752" height="452" alt="image" src="https://github.com/user-attachments/assets/a68bc950-092d-4cf2-bc97-6608cf25a397" />
 
-| Model | R² | MSE |
-|-|-|-|
-| Linear Regression | 0.9365 | 0.9219 |
-| K Neighbors Regressor | 0.9464 | 0.7782 |
+| Model                   | R²     | MSE    |
+| ----------------------- | ------ | ------ |
+| Linear Regression       | 0.9365 | 0.9219 |
+| K Neighbors Regressor   | 0.9464 | 0.7782 |
 | Decision Tree Regressor | 0.9571 | 0.6240 |
 | Random Forest Regressor | 0.9786 | 0.3116 |
-
 
 ### Key Insights
 
@@ -159,7 +152,6 @@ HSV color space provides better separation of pH-related color changes than RGB
 Tree-based models (Random Forest) outperform linear models due to nonlinear relationships between color and pH
 
 Model accuracy improves significantly when using real image data vs synthetic data
-
 
 ### How to run
 
